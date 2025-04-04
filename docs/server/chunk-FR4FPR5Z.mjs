@@ -1,2 +1,0 @@
-import './polyfills.server.mjs';
-import{B as o}from"./chunk-YXLOMBLC.mjs";import{S as r,Y as i}from"./chunk-33RGZEIL.mjs";var p=(()=>{class t{constructor(){this._httpClient=i(o)}getAllCategories(){return this._httpClient.get("categories")}getCategoryById(e){return this._httpClient.get("categories/"+e)}static{this.\u0275fac=function(n){return new(n||t)}}static{this.\u0275prov=r({token:t,factory:t.\u0275fac,providedIn:"root"})}}return t})();export{p as a};
