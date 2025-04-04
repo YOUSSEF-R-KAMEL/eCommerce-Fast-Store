@@ -49,7 +49,6 @@ nav .nav-link {
 %darkColors {
   background-color: #2d3436 !important;
   color: #dfe6e9 !important;
-
 }
 body.dark {
   @extend %darkColors;
@@ -70,3 +69,12 @@ body.dark {
   }
 }
 
+// _input-group-rtl.scss
+[lang="ar"][dir="rtl"] {
+  .input-group:not(.has-validation) > :not(:last-child):not(.dropdown-toggle):not(.dropdown-menu):not(.form-floating) {
+    border-radius: 0 8px 8px 0;
+  }
+  .input-group > :not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
+    border-radius: 8px 0 0 8px;
+  }
+}
