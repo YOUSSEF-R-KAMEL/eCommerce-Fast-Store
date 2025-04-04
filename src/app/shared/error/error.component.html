@@ -59,13 +59,9 @@
     @if (type === 'resetCode') {
       @if (control?.getError('minlength')) {
         {{'auth.resetCodeErrorLess' | translate}}
-
-
       }
       @if (control?.getError('maxlength')) {
         {{'auth.resetCodeErrorMost' | translate}}
-
-
       }
     }
   </p>

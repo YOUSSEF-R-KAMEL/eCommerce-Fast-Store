@@ -7,7 +7,6 @@
     "register": "إنشاء حساب",
     "registerBtn": "إنشاء",
     "registerNow": "سجّل الآن",
-
     "name": "الاسم",
     "namePlaceholder": "مثال: أليكس جوم",
     "nameError":"الاسم مطلوب",
@@ -50,7 +49,12 @@
 
 
     "resetPassword": "إرسال الكود",
-    "resetPasswordBtn" : "تسجيل الدخول"
+    "resetPasswordBtn" : "تسجيل الدخول",
+
+    "details": "تفاصيل",
+    "city": "المدينة",
+    "orderBtn": "دفع"
+
   },
   "nav": {
     "home": "الرئيسية",

@@ -8,9 +8,9 @@
 
     <app-input type="text" label="city" formControlName="city"></app-input>
     <app-error [control]="orderForm.get('city')" type="city"></app-error>
-    
+
     <div class="text-end">
-      <button type="submit" class="btn-main">Check out</button>
+      <button type="submit" class="btn-main">{{'auth.orderBtn' | translate}}</button>
     </div>
   </form>
 </section>

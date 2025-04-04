@@ -5,11 +5,12 @@ import { RouterModule, ActivatedRoute } from '@angular/router';
 import { OrderService } from './services/order.service';
 import { ErrorComponent } from '../../shared/error/error.component';
 import { InputComponent } from '../../shared/input/input.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-order',
   standalone: true,
-  imports: [ReactiveFormsModule, RouterModule, InputComponent, ErrorComponent],
+  imports: [ReactiveFormsModule, RouterModule, InputComponent, ErrorComponent, TranslateModule],
 templateUrl: './order.component.html',
   styleUrl: './order.component.scss'
 })

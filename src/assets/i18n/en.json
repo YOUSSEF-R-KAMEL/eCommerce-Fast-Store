@@ -27,8 +27,7 @@
     "password": "Password",
     "passwordPlaceholder": "Ex. 123YYyy@@",
     "passwordError": "Password is required",
-    "passwordErrorPattern": "At least one lowercase letter \n At least one uppercase letter \n At least one number \n At least one special character \n Minimum 6 characters of the allowed \n",
-
+    "passwordErrorPattern": "At least one lowercase letter <br> At least one uppercase letter <br> At least one number <br> At least one special character <br> Minimum 6 characters of the allowed",
     "rePassword": "Re-enter Password",
     "rePasswordPlaceholder": "Ex. 123YYyy@@",
     "rePasswordError": "rePassword is required",
@@ -51,7 +50,11 @@
     "verifyCodeBtn" : "Verify",
 
     "resetPassword": "Reset Password",
-    "resetPasswordBtn" : "Login"
+    "resetPasswordBtn" : "Login",
+
+    "details": "Details",
+    "city": "City",
+    "orderBtn": "Check out"
   },
   "nav": {
     "home": "Home",
