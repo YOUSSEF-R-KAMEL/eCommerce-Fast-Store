@@ -1,0 +1,17 @@
+.topSlider {
+  img {
+    object-fit: cover;
+  }
+  @media (max-width: 767.98px) {
+    img {
+      object-fit: cover;
+    }
+  }
+}
+.categories {
+  img {
+    cursor: pointer;
+    height: 26rem;
+    object-fit: cover;
+  }
+}

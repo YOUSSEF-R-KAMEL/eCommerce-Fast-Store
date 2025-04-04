@@ -1,0 +1,20 @@
+@if(category()) {
+  <section>
+    <div class="container">
+      <h2 class="text-center text-main my-4">{{ 'categoryDetails.title' | translate }}</h2>
+      <div class="row mt-2 align-items-center">
+        @if (category()) {
+        <div class="col-12 col-md-4 text-center">
+          <img [src]="category()?.image" [alt]="category()?.name" class="w-100 rounded-3" height="400px">
+          </div>
+          <div class="col-12 col-md-8 my-4">
+            <h3>{{category()?.name}}</h3>
+            <h6>{{category()?.slug}}</h6>
+            <p>From: {{category()?.createdAt | date: 'dd/MM/YYYY'}}</p>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+}

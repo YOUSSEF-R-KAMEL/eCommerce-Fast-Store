@@ -1,0 +1,53 @@
+@if (isLoading) {
+  <ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="ball-scale-multiple"
+  [fullScreen]="true" >
+  <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>
+} @else if (!isCartEmpty) {
+  <section class="cart bg-main-light py-3 px-4 w-75 mx-auto my-5">
+    <div class="heading d-flex justify-content-between mb-3">
+      <h2>{{'cartPage.title' | translate}}</h2>
+      <button class="btn btn-danger px-2 fs-6" (click)="showAlert()">{{'cartPage.clearCart' | translate}}</button>
+    </div>
+    <p>{{'cartPage.total' | translate}} <span>{{ carts?.totalCartPrice | currency: "GBP" }}</span></p>
+
+    @for (cart of carts?.products; track $index) {
+      <div class="cart">
+        <div class="row align-items-center">
+          <div class="col-2 text-center">
+            <img [src]="cart.product.imageCover" [alt]="cart.product.title" class="w-75" height="200px">
+          </div>
+          <div class="col-sm-7 col-8">
+            <h3 class="h6">{{ cart.product.title }}</h3>
+            <span class="desc text-main d-block mb-2">Price: {{ cart.price | currency: "GBP" }}</span>
+            <span class="remove" (click)="deleteProductsFromCart(cart.product._id)">
+              <i class="fa-solid fa-trash-can text-main"></i> {{'cartPage.remove' | translate}}
+            </span>
+          </div>
+          <div class="col-sm-3 col-2 count text-end">
+            <span class="text-main" (click)="updateProductsInCart(cart.product._id, cart.count + 1)">
+              <i class="fa-solid fa-circle-plus fa-2xl"></i>
+            </span>
+            <span>{{ cart.count }}</span>
+            <span class="text-main" (click)="updateProductsInCart(cart.product._id, cart.count - 1)">
+              <i class="fa-solid fa-circle-minus fa-2xl"></i>
+            </span>
+          </div>
+        </div>
+        <hr class="p-2">
+      </div>
+    }
+    <div class="text-end">
+      <button class="btn-main" [routerLink]="['/order', carts?._id]">{{'cartPage.order' | translate}}</button>
+    </div>
+  </section>
+} @else {
+  <div class="text-center my-4">
+    <img src="assets/images/cart/empty-cart.svg" alt="Cart is Empty" class="w-25">
+    <h2 class="text-main mt-3">Cart is Empty!</h2>
+  </div>
+}

@@ -1,0 +1,48 @@
+<section class="auth bg-main-light shadow rounded-2 p-3">
+  <!-- Forget Password -->
+  @if(step == 1){
+    <h1 class="h2 text-main mb-2 fw-medium">{{'auth.forgetPassword' | translate}}</h1>
+    <form [formGroup]="formForget" (ngSubmit)="forgetForm()">
+      <app-input type="email" label="email" formControlName="email" [placeholder]="('auth.emailPlaceholder' | translate)"></app-input>
+      <app-error [control]="formForget.get('email')" type="email"></app-error>
+      <button [disabled]="isLoading" class="btn-main ms-auto d-block" >
+        {{'auth.sendCodeBtn' | translate}}
+        @if(isLoading){
+          <span><i class="fas fa-spin fa-spinner"></i></span>
+        }
+      </button>
+    </form>
+  }
+  @else if(step === 2){
+    <!-- Verify Code -->
+    <h1 class="h2 text-main mb-2"> {{'auth.verifyCode' | translate}}</h1>
+    <form [formGroup]="formVerify" (ngSubmit)="verifyForm()">
+      <app-input type="text" label="code" formControlName="resetCode" [placeholder]="('auth.verifyCodePlaceholder' | translate)" ></app-input>
+      <app-error [control]="formVerify.get('resetCode')" type="resetCode"></app-error>
+      <button [disabled]="isLoading" class="btn-main ms-auto d-block" >
+        {{'auth.verifyCodeBtn' | translate}}
+        @if(isLoading){
+          <span><i class="fas fa-spin fa-spinner"></i></span>
+        }
+      </button>
+    </form>
+  }
+  @else if(step === 3){
+    <!-- Reset Password -->
+    <h1 class="h2 text-main mb-2">{{'auth.resetPassword' | translate}}</h1>
+    <form [formGroup]="formReset" (ngSubmit)="resetForm()">
+      <!-- email -->
+      <app-input type="email" label="email" formControlName="email" [placeholder]="('auth.emailPlaceholder' | translate)"></app-input>
+      <app-error [control]="formReset.get('email')" type="email"></app-error>
+      <!-- password -->
+      <app-input type="password" label="password" formControlName="newPassword" [placeholder]="('auth.passwordPlaceholder' | translate)"></app-input>
+      <app-error [control]="formReset.get('newPassword')" type="password"></app-error>
+      <button [disabled]="isLoading" class="btn-main ms-auto d-block" >
+        {{'auth.login' | translate}}
+        @if(isLoading){
+          <span><i class="fas fa-spin fa-spinner"></i></span>
+        }
+      </button>
+    </form>
+  }
+</section>

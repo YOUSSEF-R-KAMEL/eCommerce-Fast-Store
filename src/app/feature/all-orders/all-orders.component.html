@@ -1,0 +1,23 @@
+<section class="m-4">
+  <h2 class="text-center text-main m-4">All Orders</h2>
+  <div class="row">
+    @for (order of orders; track $index) {
+      <div class="col-12 col-sm-6 col-lg-4 mb-3">
+        <div class="cart bg-light px-4 py-2 h-100">
+          <p class="totalPrice">Total order price: {{order.totalOrderPrice | currency: 'GBP'}}</p>
+          <p class="paidAt">Paid At: {{ order.paidAt | date: 'dd/MM/yyyy hh:mm:ss a' }}</p>
+          <h3>Items</h3>
+          <div class="row">
+            @for (item of order.cartItems; track $index) {
+              <div class="col text-center">
+                <p>{{item.product.title}}</p>
+                <img [src]="item.product.imageCover" [alt]="item.product.title" width="120px" class="rounded-3"/>
+                <p class="price mt-2">{{item.price | currency: 'GBP'}}</p>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</section>

@@ -1,0 +1,72 @@
+@if (control?.errors && (control?.touched || control?.dirty)) {
+  <p class="auth-error text-danger">
+    <!-- Required Errors -->
+    @if (control?.getError('required')) {
+      @if (type === 'name') {
+        {{'auth.nameError' | translate}}
+      }
+      @if (type === 'email') {
+        {{'auth.emailError' | translate}}
+      }
+      @if (type === 'phone') {
+        {{'auth.phoneError' | translate}}
+      }
+      @if (type === 'password') {
+        {{'auth.passwordError' | translate}}
+      }
+      @if (type === 'resetCode') {
+        {{'auth.resetCodeError' | translate}}
+      }
+      @if (type === 'details') {
+        {{'auth.detailsError' | translate}}
+      }
+      @if (type === 'city') {
+        {{'auth.cityError' | translate}}
+      }
+    }
+
+    <!-- Name Validation -->
+    @if (type === 'name') {
+      @if (control?.getError('minlength')) {
+        {{'auth.nameErrorLengthLess' | translate}}
+      }
+      @if (control?.getError('maxlength')) {
+        {{'auth.nameErrorLengthMost' | translate}}
+      }
+    }
+
+    <!-- Email Validation -->
+    @if (type === 'email' && control?.getError('email')) {
+      {{'auth.emailErrorValis' | translate}}
+    }
+
+    <!-- Phone Validation -->
+    @if (type === 'phone' && control?.getError('pattern')) {
+      {{'auth.phoneErrorPattern' | translate}}
+    }
+
+    <!-- Password Validation -->
+    @if (type === 'password' && control?.getError('pattern')) {
+      <span class="text-danger" [innerHTML]="'auth.passwordErrorPattern' | translate"></span>
+    }
+
+    <!-- RePassword Validation -->
+    @if (type === 'rePassword' && control?.getError('mismatch')) {
+      {{'auth.rePasswordErrormMismatch' | translate}}
+    }
+
+    <!-- Code Validation -->
+    @if (type === 'resetCode') {
+      @if (control?.getError('minlength')) {
+        {{'auth.resetCodeErrorLess' | translate}}
+
+
+      }
+      @if (control?.getError('maxlength')) {
+        {{'auth.resetCodeErrorMost' | translate}}
+
+
+      }
+    }
+  </p>
+}

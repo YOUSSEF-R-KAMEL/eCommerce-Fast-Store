@@ -1,0 +1,18 @@
+<section class="auth bg-main-light shadow rounded-2 p-3">
+  <h1 class="h2 text-main mb-2">{{'auth.loginNow' | translate}}</h1>
+  <form [formGroup]="formLogin" (ngSubmit)="loginForm()">
+    <app-input type="email" label="email" formControlName="email" [placeholder]="('auth.emailPlaceholder' | translate)" ></app-input>
+    <app-error [control]="formLogin.get('email')" type="email"></app-error>
+    <app-input type="password" label="password" formControlName="password" [placeholder]="('auth.passwordPlaceholder' | translate)"></app-input>
+    <app-error [control]="formLogin.get('password')" type="password"></app-error>
+    <div class="d-flex justify-content-between">
+      <a routerLink="/forget" class="text-main">{{'auth.forgetPasswordQuestion' | translate}}</a>
+      <button [disabled]="isLoading" class="btn-main d-block" >
+        {{'auth.login' | translate}}
+        @if(isLoading){
+          <span><i class="fas fa-spin fa-spinner"></i></span>
+        }
+      </button>
+    </div>
+  </form>
+</section>

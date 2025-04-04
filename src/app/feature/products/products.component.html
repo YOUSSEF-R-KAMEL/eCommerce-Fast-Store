@@ -1,0 +1,2 @@
+<h2 class="text-center text-main my-4">{{ 'productsPage.title' | translate }}</h2>
+<app-cards [list]="productsList" (sendProductId)="addProductToCart($event)" type="product"></app-cards>

@@ -1,0 +1,19 @@
+@import '../../../assets/scss/abstract/_variabels';
+
+img {
+  object-fit: contain;
+}
+.remove {
+  cursor: pointer;
+  transition: .3s;
+  &:hover {
+    color: $main-color;
+  }
+}
+.count {
+  span {
+    margin-right: 8px;
+    color: $main-color;
+    cursor: pointer;
+  }
+}

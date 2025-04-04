@@ -1,0 +1,51 @@
+@if (type == 'product') {
+  <section class="products my-5">
+    <input [(ngModel)]="searchVal"
+    type="search"
+    placeholder="{{ 'homePage.productsPlaceholder' | translate }}"
+    class="form-control w-sm-100 w-50 mx-auto my-2 mb-4">
+    <div class="row">
+      @for (item of list() | search: searchVal; track item._id) {
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xxl-2" data-aos="zoom-in">
+          <div class="card border-main py-1 p-3 mb-3 shadow overflow-hidden" >
+            <div class="content" [routerLink]="['/productDetails', item._id]">
+              <img [src]="item.imageCover" [alt]="item.title">
+              <p class="text-main mt-3 mb-0">{{item.category.name}}</p>
+              <p class="h6">{{ item.title | termText: 2 }}</p>
+              <div class="nums d-flex justify-content-between">
+                <span class="price">{{item.price | currency: "GBP"}}</span>
+                <span class="ratin">
+                  <span class="stars" [ngStyle]="{'--rating': item.ratingsAverage}"></span>
+                  {{item.ratingsAverage}}
+                </span>
+              </div>
+            </div>
+            <button class="my-2 btn-main" (click)="onAddToCart(item._id)">{{ 'btnCard' | translate }}</button>
+          </div>
+        </div>
+      }
+    </div>
+  </section>
+}
+@else {
+  <section class="categories-and-brands my-5">
+    <input
+    [(ngModel)]="searchVal"
+    type="search"
+    [placeholder]="type === 'categories' ? ('categoriesPage.categoriesPlaceholder' | translate) : ('brandsPage.categoriesPlaceholder' | translate)"
+    class="form-control w-sm-100 w-50 mx-auto my-2 mb-4">
+    <div class="row">
+      @for (item of list() | search: searchVal; track item._id) {
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xxl-2" data-aos="zoom-in" >
+          <div class="card border-main py-1 p-3 mb-3 shadow overflow-hidden cr">
+            <div class="content" [routerLink]="type === 'categories' ? ['/categoryDetails', item._id] : ['/brandDetails', item._id]">
+              <img [src]="item.image" [alt]="item.name" class="w-100" [ngStyle]="{'object-fit': type === 'categories' ? 'cover' : 'contain'}" />
+              <p class="text-main mt-3 mb-0">{{ item.name }}</p>
+              <p class="h6">{{ item.slug | termText: 2 }}</p>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </section>
+}

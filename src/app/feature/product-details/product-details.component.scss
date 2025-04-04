@@ -1,0 +1,22 @@
+img {
+  object-fit: contain;
+}
+.owl-nav-left::before {
+  content: '\f104';
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+}
+
+.owl-nav-right::before {
+  content: '\f105';
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+}
+
+.owl-carousel {
+  direction: rtl;
+}
+
+.owl-carousel .owl-nav {
+  direction: ltr;
+}

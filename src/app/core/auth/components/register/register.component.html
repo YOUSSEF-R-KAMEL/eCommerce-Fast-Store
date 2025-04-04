@@ -1,0 +1,27 @@
+<section class="auth bg-main-light shadow rounded-2 p-3 my-4">
+  <h1 class="h2 text-main mb-2">{{'auth.registerNow' | translate}}</h1>
+  <form [formGroup]="formReg" (ngSubmit)="onRegister()">
+      <!-- Name -->
+      <app-input type="text" label="name" formControlName="name" [placeholder]="('auth.namePlaceholder' | translate)"></app-input>
+      <app-error [control]="formReg.get('name')" type="name"></app-error>
+      <!-- email -->
+      <app-input type="email" label="email" formControlName="email" [placeholder]="('auth.emailPlaceholder' | translate)"></app-input>
+      <app-error [control]="formReg.get('email')" type="email"></app-error>
+      <!-- phone -->
+      <app-input type="phone" label="phone" formControlName="phone" [placeholder]="('auth.phonePlaceholder' | translate)"></app-input>
+      <app-error [control]="formReg.get('phone')" type="phone"></app-error>
+      <!-- password -->
+      <app-input type="password" label="password" formControlName="password" [placeholder]="('auth.passwordPlaceholder' | translate)"></app-input>
+      <app-error [control]="formReg.get('password')" type="password"></app-error>
+      <!-- rePassword -->
+      <app-input type="password" label="rePassword" formControlName="rePassword" [placeholder]="('auth.rePasswordPlaceholder' | translate)"></app-input>
+      <app-error [control]="formReg" type="rePassword"></app-error>
+
+    <button [disabled]="formReg.invalid || isLoading" class="btn-main ms-auto d-block" >
+      {{'auth.registerBtn' | translate}}
+      @if(isLoading){
+        <span><i class="fas fa-spin fa-spinner"></i></span>
+      }
+    </button>
+  </form>
+</section>

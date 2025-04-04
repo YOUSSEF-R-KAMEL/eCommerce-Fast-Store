@@ -1,0 +1,16 @@
+<section class="w-50 mx-auto my-3">
+  <form [formGroup]="orderForm" (ngSubmit)="onSubmit()">
+    <app-input type="text" label="details" formControlName="details"></app-input>
+    <app-error [control]="orderForm.get('details')" type="details"></app-error>
+
+    <app-input type="tel" label="phone" formControlName="phone"></app-input>
+    <app-error [control]="orderForm.get('phone')" type="phone"></app-error>
+
+    <app-input type="text" label="city" formControlName="city"></app-input>
+    <app-error [control]="orderForm.get('city')" type="city"></app-error>
+    
+    <div class="text-end">
+      <button type="submit" class="btn-main">Check out</button>
+    </div>
+  </form>
+</section>

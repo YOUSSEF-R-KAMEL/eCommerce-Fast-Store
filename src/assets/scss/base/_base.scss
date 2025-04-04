@@ -1,0 +1,72 @@
+@import '../abstract/variabels';
+
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: $font-family;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;;
+}
+
+input , button {
+  outline: none;
+}
+
+nav .nav-link {
+  cursor: pointer;
+  padding: 5px 8px;
+  &:not(:has(i)) {
+    border-radius: 6px;
+    &:hover {
+      background-color: $main-color !important;
+      color: #fff !important;
+    }
+  }
+}
+
+.active-link {
+  background-color: $main-color;
+  color: #fff !important;
+  border-radius: 6px;
+}
+
+.toast-top-right {
+  position: fixed;
+  top: 12px;
+  right: 12px;
+}
+
+%darkColors {
+  background-color: #2d3436 !important;
+  color: #dfe6e9 !important;
+
+}
+body.dark {
+  @extend %darkColors;
+  nav {
+    @extend %darkColors;
+    a {
+      color: #dfe6e9 !important;
+    }
+  }
+  .card, .cart, footer, .dropdown-menu, .auth, input, .eyeIcon{
+    @extend %darkColors;
+    p:not(.auth-error) {
+      @extend %darkColors;
+    }
+  }
+  input::placeholder {
+    color: #dfe6e9 !important;
+  }
+}
+
