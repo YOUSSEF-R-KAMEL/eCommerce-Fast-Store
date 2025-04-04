@@ -11,5 +11,5 @@ import { NgxSpinnerModule } from 'ngx-spinner';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'ecommerce_freshCart';
+  title = 'ecommerce_fastStore';
 }
