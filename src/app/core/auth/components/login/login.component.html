@@ -1,5 +1,7 @@
 <section class="auth bg-main-light shadow rounded-2 p-3">
   <h1 class="h2 text-main mb-2">{{'auth.loginNow' | translate}}</h1>
+  <p class="grey-color m-0 mb-1 mt-3">For test</p>
+  <p class="grey-color m-0">[email: youssefrafat70000&#64;gmail.com, password: 123YYyy&#64;&#64;]</p>
   <form [formGroup]="formLogin" (ngSubmit)="loginForm()">
     <app-input type="email" label="email" formControlName="email" [placeholder]="('auth.emailPlaceholder' | translate)" ></app-input>
     <app-error [control]="formLogin.get('email')" type="email"></app-error>
